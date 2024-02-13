@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100%;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        #text {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+            font-weight: 800;
+            font-style: normal;
+            line-height: 1.6;
+            color: #fff;
+            position: absolute;
+            width: 100%;
+            top: 5vh;
+            font-size: 30px;
+        }
+
+        #gallery-scroll {
+            margin: auto;
+            max-height: 100%;
+            overflow: auto;
+        }
+
+        #gallery {
+            position: absolute;
+            top: 20vh;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        #gallery img {
+            height: 50vh;
+        }
+
+        #yes-btn {
+            width: 10vw;
+            height: 5vh;
+            position: absolute;
+            top: 75vh;
+            left: 45vw;
+            background-color: #091143;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.1s linear;
+        }
+
+        #yes-btn:hover {
+            background-color: #101f80;
+        }
+
+        #no-btn {
+            margin: 50px;
+            position: absolute;
+            background-color: #d8d8d8;
+            width: 10vw;
+            height: 5vh;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+    <title>Happy Valentine's Day, Deva!</title>
+</head>
+<body>
+    <div id="#body">
+        <div id="gallery-scroll">
+            <div id="gallery">
+                <img src="catplease.gif" alt="Cat Please">
+            </div>
+        </div>
+        <p id="text">
+            Will You Be My Valentine?
+        </p>
+        <button id="no-btn">NO</button>
+    </div>
+</body>
+</html>
+
+<script>
+
+    $(function() {
+        $("#no-btn").on({
+          mouseover: function() {
+            $(this).css({
+              left: (Math.random() * 200) + "px",
+              top: (Math.random() * 200) + "px",
+            });
+          }
+        });
+      });
+
+</script>

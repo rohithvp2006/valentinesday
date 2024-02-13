@@ -305,7 +305,7 @@
 
 <script>
 
-    let pageList = [ "page1/page1.html", "page2/page2.html", "page3/page3.html",  "page4/page4.html", "page5/page5.html", "page6/page6.html", "page7/page7.html", "page8/page8.html", "page9/page9.html" ];
+    let pageList = [ "page1/page1.html", "page2/page2.html", "page3/page3.html",  "page4/page4.html", "page5/page5.html", "page6/page6.html", "page7/page7.html", "page8/page8.html", "page9/page9.html", "page10/page10.html", "page11/page11.html", "page12/page12.html", "page13/page13.html" ];
 
     let pageSongs = [ 
         new Audio("page1/wildestdreams.mp3"),
@@ -316,7 +316,11 @@
         new Audio("page6/thisismetrying.mp3"),
         new Audio("page7/lovestory.mp3"),
         new Audio("page8/enchanted.mp3"),
-        new Audio("page9/callitwhatyouwant.mp3")
+        new Audio("page9/callitwhatyouwant.mp3"),
+        new Audio("page10/lover.mp3"),
+        new Audio("page11/silence.mp3"),
+        new Audio("page12/cruelsummer.mp3"),
+        new Audio("page13/saydontgo.mp3"),
     ];
 
     let pageCount = 0;
@@ -342,6 +346,12 @@
         pageSongs[pageCount-2].pause();
         pageSongs[pageCount-1].play();
         section.innerHTML = `<object data="${pageList[pageCount-1]}"></object>`;
+        if (pageCount == 12) {
+            nextBtn.innerHTML = "YES";
+        }
+        else if (pageCount == 13) {
+            nextBtn.classList.remove("visible");
+        }
     }
     
 </script>
