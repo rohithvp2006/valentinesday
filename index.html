@@ -306,10 +306,15 @@
 <script>
 
     let pageList = [ "page1/page1.html", "page2/page2.html", "page3/page3.html" ];
-    let pageSongs = [ "page1/wildestdreams.mp3", "page2/teenagedream.mp3", "page3/slut.mp3" ];
+
+    let pageSongs = [ 
+        new Audio("page1/wildestdreams.mp3"),
+        new Audio("page2/teenagedream.mp3"),
+        new Audio("page3/slut.mp3")
+    ];
+
     let pageCount = 0;
 
-    let audio = new Audio(pageSongs[pageCount]);
     let section = document.getElementById("body-section");
     let openBtn = document.getElementById("open-btn");
     let nextBtn = document.getElementById("next-btn");
@@ -318,7 +323,7 @@
         let envelope = document.getElementById("envelope");
         envelope.classList.add("open");
         envelope.classList.remove("close");
-        audio.play();
+        pageSongs[pageCount].play();
         setTimeout(() => {
             nextBtn.classList.add("visible");
             pageCount = 1;
@@ -328,9 +333,8 @@
 
     function next() {
         pageCount += 1;
-        audio.pause();
-        audio = new Audio(pageSongs[pageCount-1]);
-        audio.play();
+        pageSongs[pageCount-2].pause();
+        pageSongs[pageCount-1].play();
         section.innerHTML = `<object data="${pageList[pageCount-1]}"></object>`;
     }
     
