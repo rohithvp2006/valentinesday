@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day, Deva!</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+    }
+
+    *::-webkit-scrollbar {
+        display: none;
+    }
+
+    #bg {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        display: grid;
+    }
+
+    #bg img {
+        width: 100%;
+        transition: all 1s linear;
+    }
+
+    #bg img.hidden {
+        opacity: 0%;
+    }
+
+    @media screen and (min-width: 601px) {
+        #bg {
+            grid-template-columns: repeat(15, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            grid-column-gap: 10px;
+        }
+
+        #text-div {
+            font-size: 30px;
+        }
+    }
+      
+    @media screen and (max-width: 600px) {
+        #bg {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(15, 1fr);
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+        }
+
+        #text-div {
+            font-size: 20px;
+        }
+    }
+
+    #text-div {
+        background-color: rgba(0, 0, 0, 0);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        transition: all 1s linear;
+        text-align: center;
+        padding: 10px;
+        font-family: "Roboto Slab", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    #text-div.shade {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    #text {
+        transition: all 1s linear;
+    }
+</style>
+<body>
+    
+    <div id="bg">
+    </div>
+    
+    <div id="text-div">
+        <p id="text"></p>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    let bgCollage = document.getElementById("bg");
+    let imgs = [];
+
+    for (let i = 1; i <= 90; i++) {
+        bgCollage.innerHTML += `<img src="songscreenshots/${i}.png" id="songss-${i}" alt="${i}" class="hidden">`;
+        imgs.push(i);
+    }
+
+    function showImage() {
+        let i = imgs[Math.floor(Math.random() * imgs.length)];
+        imgs = imgs.filter(item => {
+            return item != i
+        });
+        document.getElementById(`songss-${i}`).classList.remove("hidden");
+        if (imgs.length > 0) setTimeout(showImage, 200);
+    }
+
+    showImage();
+
+    let textDiv = document.getElementById("text-div");
+    let textBox = document.getElementById("text");
+    let text = `
+        Do I love the songs you send because I love you,<br>
+        Or do I love you because I love the songs you send?<br>
+        I don't know. All I know is<br>
+        I love you and your songs...<br>
+        (And yes, all the songs in the background are the ones you sent me. There are around 90. Tap here to view.)
+    `;
+    let i = 0;
+
+    function typeWritter() {
+        if (i < text.length) {
+            if (text.charAt(i) == "<") {
+                textBox.innerHTML = textBox.innerHTML.slice(0, textBox.innerHTML.length - 1) +  "<br>|";
+                i += 4;
+                setTimeout(typeWritter, 450);
+            }
+            else {
+                textBox.innerHTML = textBox.innerHTML.slice(0, textBox.innerHTML.length - 1) + text.charAt(i) + "|";
+                i++;
+                setTimeout(typeWritter, 50);
+            }
+        }
+        else {
+            textBox.innerHTML = textBox.innerHTML.slice(0, textBox.innerHTML.length - 1);
+            textDiv.addEventListener("click", () => {
+                textDiv.classList.remove("shade");
+                textBox.innerHTML = "";
+            });
+        }
+    }
+
+    setTimeout(() => {
+        textDiv.classList.add("shade");
+        typeWritter();
+    }, 1000);
+
+
+</script>
