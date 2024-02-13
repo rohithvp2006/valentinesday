@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100%;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        #text {
+            font-family: "DM Serif Display", serif;
+            font-weight: 400;
+            font-style: normal;
+            margin-top: 20px;
+            line-height: 1.6;
+            color: #fff;
+        }
+
+        @media screen and (min-width: 601px) {
+            #text {
+              font-size: 25px;
+            }
+        }
+          
+        @media screen and (max-width: 600px) {
+            #text {
+                font-size: 20px;
+            }
+        }
+
+        #gallery-scroll {
+            margin: auto;
+            max-height: 100%;
+            overflow: auto;
+        }
+
+        #gallery {
+            margin-top: 20vh;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        #gallery img {
+            border: 5px solid #fff;
+            height: 50vh;
+        }
+    </style>
+    <title>Happy Valentine's Day, Deva!</title>
+</head>
+<body>
+    <div id="#body">
+        <div id="gallery-scroll">
+            <div id="gallery">
+                <img src="song.png" alt="A Nonsense Christmas">
+            </div>
+            <p id="text">
+                From the most dirtiest and funniest songs...
+            </p>
+        </div>
+    </div>
+</body>
+</html>
